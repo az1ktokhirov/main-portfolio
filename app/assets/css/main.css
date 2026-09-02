@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+
+/*
+  Дизайн-система.
+  Тёмная база + один тёплый акцент. Холодная 3D-сцена и тёплые CTA
+  дают контраст, который читается дороже монохрома.
+*/
+@theme {
+  --color-ink: #08090c;
+  --color-ink-raised: #101218;
+  --color-ink-hover: #171a22;
+
+  --color-bone: #edeef2;
+  --color-bone-dim: #9ca2b3;
+  --color-bone-faint: #5f6575;
+
+  --color-accent: #ff5a1f;
+  --color-accent-soft: #ff7a4d;
+
+  /* Диапазон переливов шейдера — от него же берут цвет свечения секций */
+  --color-glow-cool: #4a3aff;
+  --color-glow-warm: #ff3d81;
+
+  --font-display: 'Unbounded', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Плавная кривая для всего, что двигается: быстрый старт, мягкая посадка */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  /* Заголовки набираем плотно — крупный кегль требует отрицательного трекинга */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /*
+    Появление секций на скролле. Атрибут проставляет директива v-reveal
+    уже в браузере — без неё элемент просто виден, и это правильное
+    поведение по умолчанию.
+  */
+  [data-reveal] {
+    transition:
+      opacity 900ms var(--ease-out-expo),
+      transform 900ms var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal='hidden'] {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+
+  /*
+    Полный стоп для тех, кто просил меньше движения. Включая 3D —
+    сцена сама читает этот флаг и замирает на первом кадре.
+  */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+
+  @media (min-width: 1024px) {
+    padding-inline: 3rem;
+  }
+}
+
+/* Надзаголовок секции: моно, разрядка, приглушённый */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-bone-faint);
+}

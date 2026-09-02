@@ -1,0 +1,20 @@
+# Nuxt
+.nuxt/
+.output/
+.data/
+dist/
+
+# Зависимости
+node_modules/
+
+# Локальные файлы
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# Временные скрипты (скриншоты, генерация og)
+.shot.mjs
+.probe.mjs
+.og.mjs

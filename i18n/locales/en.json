@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "title": "Azizillo Tokhirov — Front-end developer & 3D for the web",
+    "description": "Front-end developer based in Tashkent. Landing pages, online stores and web apps built with Vue and Nuxt. Motion and 3D that never slow the site down.",
+    "ogAlt": "Azizillo Tokhirov portfolio"
+  },
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close",
+    "langLabel": "Change language"
+  },
+  "hero": {
+    "eyebrow": "Front-end developer · Tashkent",
+    "titleLine1": "Websites that",
+    "titleLine2": "never look",
+    "titleLine3": "like a template",
+    "lead": "I build landing pages, stores and web apps with Vue and Nuxt. I add motion and 3D where it sells — and leave it out where it would only slow things down.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See the work",
+    "scroll": "scroll",
+    "ticker": [
+      "I reply within a day",
+      "Fixed price before we start",
+      "30 days of free revisions",
+      "Contract-based work"
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "What I do",
+    "lead": "Price and timeline are locked before the work begins. No open-ended estimates.",
+    "priceFrom": "from",
+    "items": {
+      "landing": {
+        "title": "Landing page",
+        "description": "A one-page site built to turn visitors into enquiries. Design, build, forms, analytics and domain setup.",
+        "duration": "7–14 days",
+        "features": [
+          "Custom design, never a template",
+          "Responsive from 320 pixels up",
+          "Enquiries delivered to Telegram",
+          "Core SEO and structured data"
+        ]
+      },
+      "store": {
+        "title": "Online store",
+        "description": "Catalogue with filters, product pages, cart and checkout. Payment integration and order export included.",
+        "duration": "3–5 weeks",
+        "features": [
+          "Catalogue, search and filters",
+          "Cart and checkout flow",
+          "Online payment integration",
+          "Admin panel for products"
+        ]
+      },
+      "app": {
+        "title": "Web application",
+        "description": "An SPA or SSR app on Nuxt: customer dashboards, internal tools, services with accounts and roles.",
+        "duration": "4+ weeks",
+        "features": [
+          "Vue 3 + Nuxt + TypeScript",
+          "Authentication and permissions",
+          "Integration with your API",
+          "Tests for the critical paths"
+        ]
+      },
+      "motion": {
+        "title": "3D & motion",
+        "description": "Bringing an existing site to life: WebGL scenes, scroll animation, interactive sections — with no hit to load time.",
+        "duration": "5–10 days",
+        "features": [
+          "three.js and custom shaders",
+          "Scroll animation with GSAP",
+          "A separate lighter mobile mode",
+          "Works fully with motion disabled"
+        ]
+      }
+    },
+    "footnote": "Need something else? Tell me about it and we'll work it out."
+  },
+  "work": {
+    "eyebrow": "Work",
+    "title": "Selected projects",
+    "lead": "From a store built in plain JavaScript to an experimental interface with motion and sound.",
+    "viewCase": "Read the case",
+    "viewLive": "Visit site",
+    "all": "All work"
+  },
+  "case": {
+    "back": "All work",
+    "challenge": "The brief",
+    "solution": "The build",
+    "result": "The outcome",
+    "stack": "Stack",
+    "role": "Role",
+    "category": "Project type",
+    "live": "Visit site",
+    "source": "Source code",
+    "next": "Next project",
+    "notFound": "This project doesn't exist",
+    "notFoundLead": "The link may be out of date. Have a look at the other work instead."
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "How we work",
+    "lead": "No surprises. You always know which stage the project is at and when it lands.",
+    "steps": {
+      "brief": {
+        "title": "Brief",
+        "duration": "1 day",
+        "description": "We talk through the goal, the audience and your references. You get an exact quote and timeline. If it isn't a fit, we part ways with no obligation."
+      },
+      "design": {
+        "title": "Design",
+        "duration": "3–7 days",
+        "description": "You see the design before a single line of code is written. Revisions at this stage are free — changing a picture costs far less than rewriting a site."
+      },
+      "build": {
+        "title": "Build",
+        "duration": "1–3 weeks",
+        "description": "Every few days you get a working link. You watch the progress happen instead of waiting a month in silence."
+      },
+      "launch": {
+        "title": "Launch",
+        "duration": "1–2 days",
+        "description": "I set up the domain, hosting and analytics, then show you how to edit copy and products yourself. Thirty days of free revisions after handover."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Azizillo Tokhirov",
+    "paragraphs": [
+      "Front-end developer based in Tashkent. I started with markup at the Proweb IT centre, then moved on to client work, personal projects and a lot of practice with motion and WebGL.",
+      "I work in Vue and Nuxt and write TypeScript. I care as much about how fast a site opens as about how it looks: a beautiful site that takes six seconds to load on mobile data is not a beautiful site.",
+      "I take on a small number of projects at a time so none of them sit waiting."
+    ],
+    "stackTitle": "Stack",
+    "resume": "Download CV",
+    "portraitAlt": "Portrait of Azizillo Tokhirov"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Tell me about the project",
+    "lead": "Send me a couple of lines about what you need. I'll reply within a day with whether I can take it, what it costs and when it would be ready.",
+    "available": "Available for new projects",
+    "telegram": "Message on Telegram",
+    "email": "Send an email",
+    "phone": "Call me",
+    "orFind": "Or find me here"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "builtWith": "Built with Nuxt, TresJS and three.js",
+    "backToTop": "Back to top"
+  },
+  "a11y": {
+    "sceneFallback": "An abstract three-dimensional shape shifting slowly",
+    "loading": "Loading"
+  }
+}
