@@ -21,7 +21,7 @@ const projectSlugs = readdirSync(projectsDir)
  * Боевой адрес сайта. Отсюда строятся canonical, hreflang и redirect_uri
  * для OAuth, поэтому домен задан один раз и в одном месте.
  */
-const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://portfolio.vercel.app'
+const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://azt-portfolio.vercel.app'
 
 const FONTS_HREF = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap'
 

@@ -9,7 +9,7 @@ backend:
   repo: az1ktokhirov/main-portfolio
   branch: claude/portfolio-rry0s6
   # Вход идёт через собственный OAuth-брокер: server/api/auth.get.ts
-  base_url: https://portfolio.vercel.app
+  base_url: https://azt-portfolio.vercel.app
   auth_endpoint: api/auth
   commit_messages:
     create: 'Добавить {{collection}} «{{slug}}»'
@@ -22,8 +22,8 @@ backend:
 media_folder: public/uploads
 public_folder: /uploads
 
-site_url: https://portfolio.vercel.app
-display_url: https://portfolio.vercel.app
+site_url: https://azt-portfolio.vercel.app
+display_url: https://azt-portfolio.vercel.app
 app_title: Портфолио az1k
 logo_url: /favicon.svg
 

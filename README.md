@@ -18,7 +18,7 @@ pnpm typecheck
 | **Цены — выдуманные.** Поставь свои. | Админка → «Цены, контакты и стек» |
 | У трёх проектов стоит галочка «требует проверки»: стек и описание собраны по внешнему виду сайта. | Админка → «Проекты» |
 | **Файла резюме нет** — кнопка «Скачать резюме» ведёт в 404. | Положи PDF в `public/` |
-| Домен задан как `https://portfolio.vercel.app`. | `nuxt.config.ts` → `SITE_URL`, `public/robots.txt`, `public/admin/config.yml` |
+| Домен задан как `https://azt-portfolio.vercel.app`. | `nuxt.config.ts` → `SITE_URL`, `public/robots.txt`, `public/admin/config.yml` |
 | Настройки OAuth для входа в админку. | См. раздел «Админка» ниже |
 
 ### Проекты, требующие проверки
@@ -59,8 +59,8 @@ OAuth Apps → New OAuth App:
 
 | Поле | Значение |
 |---|---|
-| Homepage URL | `https://portfolio.vercel.app` |
-| Authorization callback URL | `https://portfolio.vercel.app/api/callback` |
+| Homepage URL | `https://azt-portfolio.vercel.app` |
+| Authorization callback URL | `https://azt-portfolio.vercel.app/api/callback` |
 
 **2. Добавить переменные окружения в Vercel** (Settings → Environment Variables):
 
@@ -69,7 +69,7 @@ OAuth Apps → New OAuth App:
 | `NUXT_GITHUB_CLIENT_ID` | Client ID из OAuth-приложения |
 | `NUXT_GITHUB_CLIENT_SECRET` | Client Secret оттуда же |
 | `NUXT_ADMIN_GITHUB_LOGINS` | Необязательно. Логины через запятую, кому разрешён вход. По умолчанию `az1ktokhirov` |
-| `NUXT_PUBLIC_SITE_URL` | Необязательно. Нужна, если домен отличается от `https://portfolio.vercel.app` |
+| `NUXT_PUBLIC_SITE_URL` | Необязательно. Нужна, если домен отличается от `https://azt-portfolio.vercel.app` |
 
 Секреты нигде в репозитории не хранятся: обмен кода на токен идёт на сервере
 (`server/api/callback.get.ts`), браузер `client_secret` не видит.

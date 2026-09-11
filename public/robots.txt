@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://portfolio.vercel.app/sitemap.xml
+Sitemap: https://azt-portfolio.vercel.app/sitemap.xml
