@@ -1,0 +1,65 @@
+{
+  "available": true,
+  "email": "azizillotokhirov@gmail.com",
+  "phone": "+998888386668",
+  "phoneDisplay": "+998 88 838-66-68",
+  "resume": "/Azizillo-Toxirov.pdf",
+  "pricing": {
+    "landing": "$400",
+    "store": "$900",
+    "app": "$1200",
+    "motion": "$300"
+  },
+  "socials": [
+    {
+      "id": "telegram",
+      "label": "Telegram",
+      "url": "https://t.me/az1ktokhirov",
+      "primary": true
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/az1ktokhirov",
+      "primary": true
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/az1ktokhirov",
+      "primary": false
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "url": "https://x.com/az1ktokh1rov",
+      "primary": false
+    }
+  ],
+  "stackGroups": [
+    {
+      "id": "core",
+      "labelRu": "Основное",
+      "labelEn": "Core",
+      "items": ["Vue 3", "Nuxt", "TypeScript", "JavaScript"]
+    },
+    {
+      "id": "styling",
+      "labelRu": "Вёрстка",
+      "labelEn": "Styling",
+      "items": ["HTML5", "CSS3", "SCSS", "Tailwind", "Bootstrap"]
+    },
+    {
+      "id": "motion",
+      "labelRu": "Графика",
+      "labelEn": "Graphics",
+      "items": ["three.js", "TresJS", "GLSL", "GSAP"]
+    },
+    {
+      "id": "tools",
+      "labelRu": "Инструменты",
+      "labelEn": "Tooling",
+      "items": ["Git", "Vite", "Pinia", "Figma"]
+    }
+  ]
+}

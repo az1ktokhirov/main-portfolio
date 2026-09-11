@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, socials } from '~/data/site'
+import { isAvailable, site, socials } from '~/data/site'
 
 const { t } = useI18n()
 
@@ -10,7 +10,8 @@ const secondary = computed(() => socials.filter(s => !s.primary))
 <template>
   <section id="contact" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-36">
     <div class="container-page">
-      <p v-reveal class="flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-bone-dim">
+      <!-- Плашка держится на переключателе в админке: занят — не обещаем сроки -->
+      <p v-if="isAvailable" v-reveal class="flex items-center gap-2.5 font-mono text-xs uppercase tracking-widest text-bone-dim">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-60" />
           <span class="relative inline-flex size-2 rounded-full bg-green-400" />
@@ -18,7 +19,7 @@ const secondary = computed(() => socials.filter(s => !s.primary))
         {{ t('contact.available') }}
       </p>
 
-      <h2 v-reveal="{ delay: 0.06 }" class="mt-6 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] font-bold">
+      <h2 v-reveal="{ delay: 0.06 }" class="max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] font-bold" :class="isAvailable ? 'mt-6' : ''">
         {{ t('contact.title') }}
       </h2>
 

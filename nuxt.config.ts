@@ -1,4 +1,27 @@
+import { readdirSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
+
+/*
+ * Слаги кейсов читаются с диска на этапе сборки.
+ *
+ * Компоненты берут проекты через import.meta.glob, но это возможность Vite:
+ * Nitro собирается rollup-ом и такой синтаксис не понимает. Поэтому список
+ * собирается здесь и раздаётся дальше — в prerender.routes и в runtimeConfig
+ * для карты сайта. Побочный плюс: пререндер больше не зависит от того,
+ * найдёт ли краулер ссылку на кейс в разметке.
+ */
+const projectsDir = fileURLToPath(new URL('./content/projects', import.meta.url))
+
+const projectSlugs = readdirSync(projectsDir)
+  .filter(file => file.endsWith('.json'))
+  .map(file => file.replace(/\.json$/, ''))
+
+/**
+ * Боевой адрес сайта. Отсюда строятся canonical, hreflang и redirect_uri
+ * для OAuth, поэтому домен задан один раз и в одном месте.
+ */
+const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://portfolio.vercel.app'
 
 const FONTS_HREF = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Unbounded:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap'
 
@@ -32,7 +55,7 @@ export default defineNuxtConfig({
   // и корректные hreflang для поисковиков.
   i18n: {
     // Абсолютный домен обязателен: из него строятся canonical и hreflang.
-    baseUrl: 'https://az1k.dev',
+    baseUrl: SITE_URL,
     strategy: 'prefix_except_default',
     defaultLocale: 'ru',
     locales: [
@@ -79,11 +102,32 @@ export default defineNuxtConfig({
     },
   },
 
-  // crawlLinks доходит до страниц кейсов по ссылкам из секции «Работы».
+  // Слаги известны заранее, поэтому маршруты кейсов перечислены явно.
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/en', '/sitemap.xml'],
+      routes: [
+        '/',
+        '/en',
+        '/sitemap.xml',
+        ...projectSlugs.flatMap(slug => [`/work/${slug}`, `/en/work/${slug}`]),
+      ],
+    },
+  },
+
+  runtimeConfig: {
+    // Секреты OAuth-приложения GitHub. Значения приходят из переменных
+    // окружения (NUXT_GITHUB_CLIENT_ID и NUXT_GITHUB_CLIENT_SECRET) и в
+    // репозиторий не попадают.
+    githubClientId: '',
+    githubClientSecret: '',
+    /** Логины GitHub, которым разрешён вход в админку, через запятую. */
+    adminGithubLogins: 'az1ktokhirov',
+
+    public: {
+      // Единственный способ передать список кейсов в серверные маршруты.
+      projectSlugs,
+      siteUrl: SITE_URL,
     },
   },
 

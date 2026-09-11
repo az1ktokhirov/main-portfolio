@@ -2,6 +2,7 @@
 import { site } from '~/data/site'
 
 const { t, locale } = useI18n()
+const siteUrl = useRuntimeConfig().public.siteUrl as string
 
 // hreflang, og:locale и lang на <html> — модуль собирает их сам.
 const localeHead = useLocaleHead({ dir: true, lang: true, seo: true })
@@ -18,10 +19,10 @@ useSeoMeta({
   ogTitle: () => t('meta.title'),
   ogDescription: () => t('meta.description'),
   ogType: 'website',
-  ogImage: () => `${site.url}/og.png`,
+  ogImage: () => `${siteUrl}/og.png`,
   ogImageAlt: () => t('meta.ogAlt'),
   twitterCard: 'summary_large_image',
-  twitterImage: () => `${site.url}/og.png`,
+  twitterImage: () => `${siteUrl}/og.png`,
 })
 
 // Разметка для поисковиков: кто это, чем занимается, где найти.
@@ -32,7 +33,7 @@ useHead(() => ({
       '@context': 'https://schema.org',
       '@type': 'Person',
       'name': locale.value === 'ru' ? site.name : site.nameLatin,
-      'url': site.url,
+      'url': siteUrl,
       'email': `mailto:${site.email}`,
       'jobTitle': locale.value === 'ru' ? 'Фронтенд-разработчик' : 'Front-end developer',
       'address': {

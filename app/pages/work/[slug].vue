@@ -87,6 +87,16 @@ const blocks = computed(() => [
         </div>
       </header>
 
+      <figure v-if="project.cover" v-reveal class="case-cover mt-14">
+        <img
+          :src="project.cover"
+          :alt="`${project.title} — ${copy.tagline}`"
+          decoding="async"
+          width="1280"
+          height="800"
+        >
+      </figure>
+
       <div class="grid gap-14 py-14 lg:grid-cols-[1fr_18rem] lg:gap-20">
         <div class="space-y-12">
           <section v-for="block in blocks" :key="block.key" v-reveal>
@@ -149,6 +159,23 @@ const blocks = computed(() => [
 </template>
 
 <style scoped>
+/* Обложка на подложке с оттенком проекта: скриншот на голом чёрном
+   выглядит вырезанным, рамка и свечение возвращают его в композицию. */
+.case-cover {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 1rem;
+  background: hsl(var(--hue) 60% 50% / 6%);
+  box-shadow: 0 2rem 5rem hsl(var(--hue) 70% 40% / 12%);
+}
+
+.case-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .case-title {
   background: linear-gradient(
     180deg,

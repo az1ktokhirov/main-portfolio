@@ -1,0 +1,33 @@
+{
+  "title": "Az1k v1",
+  "order": 5,
+  "index": "05",
+  "hue": 48,
+  "live": "https://az1ktokhirov.vercel.app/",
+  "source": "",
+  "cover": "",
+  "stack": [
+    "Vue 3",
+    "Vue Router",
+    "Vuex",
+    "SCSS",
+    "Web Audio"
+  ],
+  "needsReview": false,
+  "ru": {
+    "tagline": "Первое портфолио как игровой интерфейс",
+    "category": "Эксперимент",
+    "role": "Идея, дизайн и разработка",
+    "challenge": "Хотелось портфолио, которое не листают, а проходят. Обычная страница «обо мне» ничего не говорит о том, умеет ли автор делать интерфейс, который держит внимание.",
+    "solution": "Собрал сайт как игровое меню: пункты навигации бегут бесконечной лентой, наведение и клик отзываются звуком через Web Audio, между разделами проигрывается свой экран загрузки. Всё на Vue 3 с Vue Router и Vuex.",
+    "result": "Проект решил ровно ту задачу, для которой задумывался, — и заодно показал границу: такой интерфейс отлично работает как эксперимент, но плохо продаёт услуги. Поэтому появился этот сайт, а v1 остался в портфолио как есть."
+  },
+  "en": {
+    "tagline": "A first portfolio built as a game interface",
+    "category": "Experiment",
+    "role": "Concept, design & development",
+    "challenge": "I wanted a portfolio you play through rather than scroll past. A plain \"about me\" page says nothing about whether its author can build an interface that holds attention.",
+    "solution": "I built the site as a game menu: navigation items run as infinite marquees, hover and click answer with sound through Web Audio, and each section gets its own loading screen. Vue 3 throughout, with Vue Router and Vuex.",
+    "result": "It did exactly what it set out to do — and showed me the limit: an interface like this works beautifully as an experiment but sells services badly. That is why this site exists, and why v1 stays in the portfolio untouched."
+  }
+}

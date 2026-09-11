@@ -1,0 +1,32 @@
+{
+  "title": "AZT Store",
+  "order": 2,
+  "index": "02",
+  "hue": 258,
+  "live": "https://azt-store.vercel.app/",
+  "source": "",
+  "cover": "",
+  "stack": [
+    "Vue 3",
+    "Vite",
+    "Vue Router",
+    "SCSS"
+  ],
+  "needsReview": true,
+  "ru": {
+    "tagline": "Магазин на Vue с каталогом и маршрутизацией",
+    "category": "Интернет-магазин",
+    "role": "Фронтенд-разработка",
+    "challenge": "Нужно было перенести витрину со статической вёрстки на компонентный подход: чтобы карточка товара, каталог и корзина жили как переиспользуемые части, а не копировались из файла в файл.",
+    "solution": "Переписал магазин на Vue 3 с Vite. Разбил интерфейс на компоненты, состояние вынес из разметки, переходы между разделами повесил на Vue Router. Сборка через Vite дала мгновенный дев-сервер и разделение бандла на части.",
+    "result": "Добавить новый раздел теперь — это один компонент и одна запись в роутере, а не копия трёхсот строк разметки. Приложение собирается в статику и раздаётся с CDN."
+  },
+  "en": {
+    "tagline": "A Vue storefront with a component-driven catalogue",
+    "category": "Online store",
+    "role": "Front-end development",
+    "challenge": "The storefront had to move from static markup to a component model, so that the product card, the catalogue and the cart lived as reusable pieces instead of being copied between files.",
+    "solution": "I rebuilt the store on Vue 3 with Vite. The interface became components, state moved out of the markup, and navigation went through Vue Router. Vite gave an instant dev server and a properly split bundle.",
+    "result": "Adding a section is now one component and one route entry rather than a copy of three hundred lines of markup. The app builds to static files and ships from a CDN."
+  }
+}

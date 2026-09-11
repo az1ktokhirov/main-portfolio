@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "node scripts/copy-cms.mjs && nuxt build",
+    "dev": "node scripts/copy-cms.mjs && nuxt dev",
+    "generate": "node scripts/copy-cms.mjs && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck"
@@ -19,7 +19,9 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@sveltia/cms": "^0.209.1",
     "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.20.2",
     "@types/three": "^0.185.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.0",

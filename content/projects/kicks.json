@@ -1,0 +1,31 @@
+{
+  "title": "Kicks",
+  "order": 3,
+  "index": "03",
+  "hue": 152,
+  "live": "https://kickss.netlify.app/",
+  "source": "",
+  "cover": "",
+  "stack": [
+    "HTML5",
+    "SCSS",
+    "JavaScript"
+  ],
+  "needsReview": true,
+  "ru": {
+    "tagline": "Витрина магазина кроссовок",
+    "category": "Интернет-магазин",
+    "role": "Вёрстка и разработка",
+    "challenge": "Магазину кроссовок нужна была витрина, которая держит внимание: товар в этой нише продаёт картинка, а не текст описания.",
+    "solution": "Сделал упор на крупные изображения и плотную сетку каталога. Интерфейс собран так, чтобы карточка товара оставалась читаемой и на витрине, и на узком экране телефона.",
+    "result": "Каталог одинаково аккуратно раскладывается на любой ширине, ключевые действия остаются в зоне большого пальца на мобильном."
+  },
+  "en": {
+    "tagline": "A sneaker store front end",
+    "category": "Online store",
+    "role": "Markup & development",
+    "challenge": "A sneaker shop needed a storefront that holds attention: in this category the photograph sells the product, not the description.",
+    "solution": "I leaned on large imagery and a tight catalogue grid. The interface is built so the product card stays readable both in the grid and on a narrow phone screen.",
+    "result": "The catalogue reflows cleanly at any width, and the key actions stay inside thumb reach on mobile."
+  }
+}

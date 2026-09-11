@@ -1,0 +1,33 @@
+{
+  "title": "Sun Light",
+  "order": 1,
+  "index": "01",
+  "hue": 32,
+  "live": "https://lampshop.vercel.app/",
+  "source": "",
+  "cover": "",
+  "stack": [
+    "HTML5",
+    "SCSS",
+    "JavaScript",
+    "Swiper",
+    "ScrollReveal"
+  ],
+  "needsReview": false,
+  "ru": {
+    "tagline": "Магазин освещения с корзиной и тёмной темой",
+    "category": "Интернет-магазин",
+    "role": "Дизайн и разработка",
+    "challenge": "Магазину ламп нужна была витрина, где товар добавляется в корзину и сумма пересчитывается мгновенно — без перезагрузки страницы и без тяжёлой CMS за спиной.",
+    "solution": "Собрал витрину на чистом JavaScript, без фреймворков. Корзина считает количество и общую сумму на лету, популярные позиции крутятся в слайдере Swiper, блоки проявляются по мере скролла. Добавил переключатель светлой и тёмной темы — лампы логичнее всего показывать в темноте.",
+    "result": "Страница почти ничего не весит: только вёрстка и ванильный JS, ни одного мегабайта фреймворка. Каталог, корзина и аккордеон с вопросами одинаково работают от 320 пикселей до широкого монитора."
+  },
+  "en": {
+    "tagline": "A lighting store with a live cart and a dark mode",
+    "category": "Online store",
+    "role": "Design & development",
+    "challenge": "The shop needed a storefront where products drop into a cart and the total recalculates instantly — with no page reloads and no heavy CMS behind it.",
+    "solution": "I built the storefront in plain JavaScript, no framework. The cart tracks quantities and the running total live, featured products sit in a Swiper carousel, and sections reveal themselves on scroll. I added a light/dark toggle — lamps make the most sense shown in the dark.",
+    "result": "The page weighs almost nothing: markup and vanilla JS, not a megabyte of framework. Catalogue, cart and the FAQ accordion all behave identically from 320 pixels up to a wide monitor."
+  }
+}

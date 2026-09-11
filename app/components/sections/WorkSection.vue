@@ -4,8 +4,11 @@ import { projects } from '~/data/projects'
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
-// Скриншотов пока нет, поэтому список сделан типографским указателем,
-// а не сеткой карточек с пустыми местами под картинки.
+/*
+ * Список остаётся типографским указателем, а обложка — необязательным
+ * дополнением справа. Так строка выглядит законченной и с картинкой,
+ * и без неё: пустых мест под ненайденные скриншоты не остаётся.
+ */
 const copy = (project: typeof projects[number]) =>
   locale.value === 'en' ? project.en : project.ru
 </script>
@@ -23,7 +26,7 @@ const copy = (project: typeof projects[number]) =>
         <li v-for="project in projects" :key="project.slug" v-reveal>
           <NuxtLink
             :to="localePath(`/work/${project.slug}`)"
-            class="work-row group grid items-baseline gap-x-8 gap-y-3 border-b border-white/8 py-8 lg:grid-cols-[4rem_1fr_auto] lg:py-10"
+            class="work-row group grid items-baseline gap-x-8 gap-y-3 border-b border-white/8 py-8 lg:grid-cols-[4rem_1fr_auto_auto] lg:py-10"
             :style="{ '--hue': project.hue }"
           >
             <span class="font-mono text-sm text-bone-faint transition-colors group-hover:text-accent">
@@ -46,6 +49,17 @@ const copy = (project: typeof projects[number]) =>
                   {{ tech }}
                 </li>
               </ul>
+            </div>
+
+            <div v-if="project.cover" class="work-row__cover lg:self-center">
+              <img
+                :src="project.cover"
+                :alt="`${project.title} — ${copy(project).tagline}`"
+                loading="lazy"
+                decoding="async"
+                width="320"
+                height="200"
+              >
             </div>
 
             <span class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-bone-faint transition-colors group-hover:text-bone lg:self-center">
@@ -92,6 +106,37 @@ const copy = (project: typeof projects[number]) =>
 
 .work-row__title {
   transition: transform 600ms var(--ease-out-expo), color 400ms ease;
+}
+
+/* Обложка узкая и приглушённая: список должен читаться по названиям,
+   картинка здесь — подсказка, а не главный элемент. */
+.work-row__cover {
+  width: 10rem;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 0.625rem;
+}
+
+.work-row__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: opacity 500ms var(--ease-out-expo), transform 700ms var(--ease-out-expo);
+}
+
+.work-row:hover .work-row__cover img,
+.work-row:focus-visible .work-row__cover img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+@media (max-width: 1023px) {
+  .work-row__cover {
+    width: 100%;
+    max-width: 18rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

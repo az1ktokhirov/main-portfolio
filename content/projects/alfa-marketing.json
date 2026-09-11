@@ -1,0 +1,32 @@
+{
+  "title": "Alfa Marketing",
+  "order": 4,
+  "index": "04",
+  "hue": 200,
+  "live": "https://az1ktokhirov.github.io/test-project/",
+  "source": "https://github.com/az1ktokhirov/test-project",
+  "cover": "",
+  "stack": [
+    "HTML5",
+    "SCSS",
+    "JavaScript",
+    "Bootstrap"
+  ],
+  "needsReview": true,
+  "ru": {
+    "tagline": "Сайт маркетингового агентства",
+    "category": "Корпоративный сайт",
+    "role": "Вёрстка",
+    "challenge": "Агентству нужен был сайт-визитка, который сам по себе служит доказательством компетенции: маркетологу нельзя продавать услуги с плохо свёрстанной страницы.",
+    "solution": "Свёрстал многосекционную страницу с услугами, преимуществами и формой заявки. Сетку собрал на Bootstrap, поверх — собственные стили на SCSS, чтобы сайт не выглядел как стандартная бутстрап-тема.",
+    "result": "Страница держит сетку на всех брейкпоинтах и открывается быстро — статика без бэкенда, раздаётся напрямую с GitHub Pages."
+  },
+  "en": {
+    "tagline": "Website for a marketing agency",
+    "category": "Company website",
+    "role": "Markup",
+    "challenge": "The agency needed a site that doubles as proof of competence: a marketer cannot sell services from a badly built page.",
+    "solution": "I built a multi-section page covering services, differentiators and an enquiry form. The grid runs on Bootstrap with custom SCSS layered on top, so it never reads as an off-the-shelf Bootstrap theme.",
+    "result": "The layout holds at every breakpoint and loads fast — static files with no backend, served straight from GitHub Pages."
+  }
+}

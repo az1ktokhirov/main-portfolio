@@ -18,3 +18,6 @@ node_modules/
 .shot.mjs
 .probe.mjs
 .og.mjs
+
+# Бандл админки — копируется из node_modules при сборке
+public/admin/sveltia-cms.mjs

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Админка не должна попадать в поиск -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Админка — az1k</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    body { margin: 0; background: #08090c; }
+  </style>
+</head>
+<body>
+  <!--
+    Обычная HTML-страница, а не маршрут Nuxt: CMS — самостоятельное
+    приложение, которое забирает себе весь документ, и внутри Vue-страницы
+    она конфликтовала бы с гидратацией.
+
+    Скрипт копируется из node_modules при сборке (scripts/copy-cms.mjs),
+    поэтому версия зафиксирована в pnpm-lock и страница не зависит от
+    доступности стороннего CDN.
+  -->
+  <div id="nc-root"></div>
+
+  <script type="module">
+    // Сборка не стартует сама при импорте — точку входа нужно вызвать явно.
+    import CMS from '/admin/sveltia-cms.mjs'
+
+    CMS.init()
+  </script>
+</body>
+</html>

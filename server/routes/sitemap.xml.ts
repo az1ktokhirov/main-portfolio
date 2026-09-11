@@ -1,17 +1,23 @@
-import { projects } from '../../app/data/projects'
-import { site } from '../../app/data/site'
-
 /**
  * Небольшой сайт — отдельный модуль ради карты сайта не нужен.
  * Маршрут пререндерится в статику при сборке.
+ *
+ * Слаги берутся из runtimeConfig: они собираются в nuxt.config чтением
+ * content/projects, потому что import.meta.glob здесь, в сборке Nitro,
+ * недоступен.
  */
 export default defineEventHandler((event) => {
-  const paths = ['/', ...projects.map(p => `/work/${p.slug}`)]
+  const { projectSlugs, siteUrl } = useRuntimeConfig(event).public as {
+    projectSlugs: string[]
+    siteUrl: string
+  }
+
+  const paths = ['/', ...projectSlugs.map(slug => `/work/${slug}`)]
 
   // Каждая страница существует в двух языках: русский на корне, английский под /en.
   const urls = paths.flatMap(path => [
-    { loc: `${site.url}${path}`, locale: 'ru', alt: `${site.url}/en${path === '/' ? '' : path}` },
-    { loc: `${site.url}/en${path === '/' ? '' : path}`, locale: 'en', alt: `${site.url}${path}` },
+    { loc: `${siteUrl}${path}`, locale: 'ru', alt: `${siteUrl}/en${path === '/' ? '' : path}` },
+    { loc: `${siteUrl}/en${path === '/' ? '' : path}`, locale: 'en', alt: `${siteUrl}${path}` },
   ])
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

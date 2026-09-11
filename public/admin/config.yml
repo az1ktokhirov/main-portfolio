@@ -1,0 +1,184 @@
+# Схема админки. Правится руками — CMS этот файл только читает.
+#
+# ВАЖНО: branch должен совпадать с веткой, которую деплоит Vercel.
+# Если переименуешь ветку (например, в main) — поменяй и здесь,
+# иначе админка будет открываться, но сохранение будет падать.
+
+backend:
+  name: github
+  repo: az1ktokhirov/main-portfolio
+  branch: claude/portfolio-rry0s6
+  # Вход идёт через собственный OAuth-брокер: server/api/auth.get.ts
+  base_url: https://portfolio.vercel.app
+  auth_endpoint: api/auth
+  commit_messages:
+    create: 'Добавить {{collection}} «{{slug}}»'
+    update: 'Обновить {{collection}} «{{slug}}»'
+    delete: 'Удалить {{collection}} «{{slug}}»'
+    uploadMedia: 'Загрузить {{path}}'
+    deleteMedia: 'Удалить {{path}}'
+
+# Куда складываются загруженные картинки и каким путём они видны на сайте
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://portfolio.vercel.app
+display_url: https://portfolio.vercel.app
+app_title: Портфолио az1k
+logo_url: /favicon.svg
+
+editor:
+  preview: false
+
+collections:
+  - name: projects
+    label: Проекты
+    label_singular: Проект
+    description: >-
+      Кейсы в разделе «Работы». Имя файла становится адресом страницы:
+      sun-light.json → /work/sun-light.
+    folder: content/projects
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: '{{title}}'
+    identifier_field: title
+    summary: '{{order}} · {{title}}'
+    sortable_fields: [order, title]
+    fields:
+      - name: title
+        label: Название
+        widget: string
+
+      - name: order
+        label: Порядок в списке
+        widget: number
+        value_type: int
+        min: 1
+        hint: Чем меньше число, тем выше проект в разделе «Работы».
+
+      - name: index
+        label: Номер-подпись
+        widget: string
+        hint: Показывается слева от названия. Обычно 01, 02, 03…
+
+      - name: hue
+        label: Оттенок подсветки
+        widget: number
+        value_type: int
+        min: 0
+        max: 360
+        default: 200
+        hint: >-
+          Цвет свечения строки при наведении и заголовка кейса, в градусах:
+          0 — красный, 120 — зелёный, 240 — синий.
+
+      - name: cover
+        label: Обложка
+        widget: image
+        required: false
+        hint: Скриншот проекта. Без него карточка покажет только текст.
+
+      - name: live
+        label: Ссылка на сайт
+        widget: string
+        required: false
+
+      - name: source
+        label: Ссылка на исходный код
+        widget: string
+        required: false
+
+      - name: stack
+        label: Стек
+        widget: list
+        hint: Технологии проекта. Показываются тегами.
+
+      - name: needsReview
+        label: Требует проверки
+        widget: boolean
+        default: false
+        required: false
+        hint: >-
+          Служебная пометка для себя — на сайте не видна. Снимай, когда
+          проверишь, что описание и стек соответствуют реальности.
+
+      - name: ru
+        label: Текст по-русски
+        widget: object
+        collapsed: false
+        fields:
+          - { name: tagline, label: Подзаголовок, widget: string, hint: Одна строка под названием в списке работ. }
+          - { name: category, label: Тип проекта, widget: string }
+          - { name: role, label: Роль, widget: string }
+          - { name: challenge, label: Задача, widget: text }
+          - { name: solution, label: Решение, widget: text }
+          - { name: result, label: Что получилось, widget: text }
+
+      - name: en
+        label: Текст по-английски
+        widget: object
+        collapsed: true
+        fields:
+          - { name: tagline, label: Подзаголовок, widget: string }
+          - { name: category, label: Тип проекта, widget: string }
+          - { name: role, label: Роль, widget: string }
+          - { name: challenge, label: Задача, widget: text }
+          - { name: solution, label: Решение, widget: text }
+          - { name: result, label: Что получилось, widget: text }
+
+# Одиночные файлы вынесены из collections: в актуальной схеме Sveltia
+# файловые коллекции живут здесь и открываются прямо из списка слева.
+singletons:
+  - name: settings
+    label: Цены, контакты и стек
+    file: content/settings.json
+    icon: tune
+    fields:
+      - name: available
+        label: Свободен для новых проектов
+        widget: boolean
+        default: true
+        hint: >-
+          Выключи, когда занят: зелёная плашка в блоке контактов
+          перестанет показываться.
+
+      - name: pricing
+        label: Цены «от»
+        widget: object
+        collapsed: false
+        fields:
+          - { name: landing, label: Лендинг, widget: string }
+          - { name: store, label: Интернет-магазин, widget: string }
+          - { name: app, label: Веб-приложение, widget: string }
+          - { name: motion, label: 3D и анимация, widget: string }
+
+      - { name: email, label: Почта, widget: string }
+      - { name: phone, label: 'Телефон для ссылки tel:', widget: string, hint: 'Без пробелов и скобок, например +998888386668' }
+      - { name: phoneDisplay, label: Телефон как показывать, widget: string }
+      - { name: resume, label: Путь к файлу резюме, widget: string }
+
+      - name: socials
+        label: Соцсети
+        widget: list
+        summary: '{{fields.label}}'
+        fields:
+          - { name: id, label: Ключ, widget: string, hint: 'Латиницей, без пробелов: telegram, github…' }
+          - { name: label, label: Название, widget: string }
+          - { name: url, label: Ссылка, widget: string }
+          - name: primary
+            label: Основная
+            widget: boolean
+            default: false
+            hint: Основные показываются кнопками в блоке контактов, остальные — ссылками.
+
+      - name: stackGroups
+        label: Стек в разделе «Обо мне»
+        widget: list
+        summary: '{{fields.labelRu}}'
+        fields:
+          - { name: id, label: Ключ, widget: string }
+          - { name: labelRu, label: Заголовок по-русски, widget: string }
+          - { name: labelEn, label: Заголовок по-английски, widget: string }
+          - { name: items, label: Технологии, widget: list }
